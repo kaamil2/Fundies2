@@ -1,0 +1,8 @@
+When you start to play the game it will automaticlaly start the game and a button will flash
+once it flashes the screen will prompt you to select the button that was just flashed. once you have done so
+the program will pick up and repeat the previously shown button(s) and then add another button to the sequence.
+once this has been donea and shown to the user they will then be able to select the buttons
+in the order they were shown. This is the game. The game will continue to add buttons to the sequence
+until the user fails to select the correct button in the sequence. Once the user fails to select the correct button
+in order the game will end and leave the user with the you lost screen. PSA: the game is a lil buggy and the
+flashes may go fast so be prepared once the the button has been pressed.

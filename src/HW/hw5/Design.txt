@@ -1,0 +1,94 @@
+Describing the design of Simon.java
+
+The code has a class called SimonWorld, which extends the World class. This class holds all the state for the game and
+defines the behavior of the game. The SimonWorld class has the following fields:
+
+- redLit, greenLit, blueLit, and yellowLit: boolean values that represent the state of the buttons. If the value is
+    true, the button is lit. If the value is false, the button is dark.
+- litButtons: a list of Button objects that represent the sequence of lit buttons that the player has to memorize.
+- display: a boolean value that represents the state of the game. If the value is true, the game is
+    displaying the lit buttons. If the value is false, the game is waiting for the player to click on the buttons.
+- redButton, greenButton, blueButton, and yellowButton: instances of the Button class that represent the four buttons
+    in the game.
+- buttonId the id of the button that is being clicked
+- userScore the score of the user
+- rand the random number generator
+
+The SimonWorld class has the following methods:
+- SimonWorld(): a constructor that initializes the state of the game.
+- makeScene(): a method that generates a WorldScene object that represents the current state of the game.
+    - gameOver(): a method that checks if the game is over.
+    - displayLitButtons(): a method that displays the lit buttons.
+    - displayDarkButtons(): a method that displays the dark buttons.
+    - checkUserInput(): a method that checks if the player clicked on the correct buttonS
+
+- onTick(): a method that handles the behavior of the game on each tick of the timer.
+
+- onMousePressed(): a method that handles the behavior of the game when the player clicks on a button.
+    - isRedClicked(): a method that checks if the player clicked on the red button.
+    - isGreenClicked(): a method that checks if the player clicked on the green button.
+    - isBlueClicked(): a method that checks if the player clicked on the blue button.
+    - isYellowClicked(): a method that checks if the player clicked on the yellow button.
+- lastScene(): a method that generates a WorldScene object that represents the last scene of the game.
+
+The code has a class called ILoButton, which represents a list of Button objects. This class has the following
+    methods:
+ - ILoButton(): a constructor that initializes the state of the list.
+    - length(): a method that returns the length of the list.
+    -properButton(int index): a method that checks if the button is in the correct position in the list
+    -diffButton(Random rand): a method that gives a random number and then adds that button to the list
+    -reverse(): a method that reverses the list
+    -reverseHelper(ILoButton acc): a method that reverses the list
+
+
+
+The code has a class called ButtonThis class represents a button in the game. The
+    Button class has the following fields:
+
+- Color: the color of the button.
+- x: the x-coordinate of the button.
+- y: the y-coordinate of the button.
+
+The Button class has the following methods:
+- Button(): a constructor that initializes the state of the button.
+- drawButton(): a method that generates a WorldImage object that represents the current state of the button.
+-
+isClicked(): a method that checks if the button is clicked.
+- drawDark() a method that draws the button as a dark button
+- drawLit() a method that draws the button as a lit button
+
+The code has a class called ExamplesSimon, which extends the Examples class. This class contains examples of the
+    game and tests for the game.
+
+
+
+
+The design of Simon.java starts with a constructor not taking in any arguments this however does produce a random
+number which is the start of what button will be used. The constructor starts the game form the big bang in the
+examples class once it has been started it will then code will then run the makeScene() method which will create the
+scene and then put the various differnt buttons onto the screen with them all starting as being dark buttons.
+once the beginning scene has been drawn on the tick then the random number will come in play the random number
+will be designated to a specific button to be flashed at the tick the button will be flashed and that button will be
+added to a list of buttons that are going to be used as a key for the user input. the user input
+will be awaited until the user input is awaited at the tick it will keep a constant scene once the user clicks at a
+certain point the onMousePressed() method will be taken into account makeScene() method will create the scene and
+then put the various different buttons onto the screen with them being dark buttons except the one that is clicked.
+ if the one that is clicked is at the beginning of the list of buttons that are being used as a key then the program
+ will either wait for another user input to match with the rest of the key if the list is not empty but if the list
+ is empty then a new number will be generated and the button will be added to the list of buttons that are being
+ used as a key and at the tick the button will be flashed. if the user clicks on a button that is not at the beginning
+of the list of buttons that are being used as a key then the game will end and the user will be taken to the end.
+
+
+
+
+
+The makeScene() method generates a WorldScene object that represents the current state of the game. The makeScene()
+method first checks if the game is over, and if it is, it returns a lastScene() WorldScene with the "Game Over"
+message. Otherwise, it generates a WorldScene with the four buttons arranged in a grid. The lit buttons are highlighted
+, and the player is given a message to either watch the lit buttons or repeat them back.
+
+The onTick() method handles the behavior of the game on each tick of the timer. If the game is over, the method
+ returns the current instance of the SimonWorld class. Otherwise, if the game is displaying the lit buttons, the method
+ highlights the next button in the sequence. If the game is not displaying the lit buttons, the method checks if the
+ player clicked on the correct button and updates the state of the game accordingly.
